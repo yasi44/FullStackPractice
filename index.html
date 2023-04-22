@@ -1,0 +1,26 @@
+<html> 
+<script type="text/javascript" src="JS/script.js">
+</script>
+<head>
+<link rel="stylesheet" href="CSS/style.css" type="text/css"/>
+<link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+<title> Actor Movie </title>
+</head>
+
+<body bgcolor="white" text="blue">		
+		
+<p style="text-align:center;"><img id="logos" src="Images/logo.png" border="0"/></p>
+<h1>Select one of the 80 actors</h1>
+
+<p style="text-align:center;">
+<label for="actor">Enter a number between 1 and 80:</label>
+<!-- <select id="actor" onclick="actor_select()"></select> -->
+<input type="number" id="quantity" name="quantity" min="1" max="80">
+<input type="submit" name="send" onclick="get_actor_info()" value="Get Actor info">
+
+<div class="container" style="text-align:center;"></div>
+</p>
+
+</body>
+</html>

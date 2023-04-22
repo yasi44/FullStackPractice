@@ -1,0 +1,70 @@
+<html> 
+<script type="text/javascript" src="JS/script.js">
+</script>
+<head>
+	<link rel="stylesheet" href="CSS/style.css" type="text/css"/>
+<link rel="icon" href="Images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+<title> Actor Movie </title>
+
+</head>
+<body bgcolor="white" text="blue">	
+	<script>
+
+		async function getFilm(url) {
+			
+			try {
+				let res = await fetch(url);
+				return await res.json();
+			} catch (error) {
+				console.log(error);
+			}
+		}
+
+		async function renderFilms(link) {
+			let f = await getFilm(link);
+			
+			let html = '';
+			console.log(f);
+		
+			films = f.films
+		
+			let htmlFilm = ``;
+			films.forEach(film => {
+				htmlFilm += `<p><a href=${film}>${film}</a></p>`;
+			});
+		
+		
+			console.log(films);
+			// users.forEach(user => {
+			let htmlSegment = `<div class="user">
+								<p id='Films'> Films: ${htmlFilm}</p>							
+							</div>`;
+		
+			html += htmlSegment;
+			let container = document.querySelector('.container');
+			container.innerHTML = html;
+			
+		}
+		
+		// Get the search parameters from the URL
+		let searchParams = new URLSearchParams(window.location.search);
+
+		// Get the value of the 'userId' parameter
+		let userId = searchParams.get('userid');
+
+		// Check if a user ID was found in the URL
+		if (userId !== null) {
+		console.log("The user ID is: " + userId);
+		} else {
+		console.log("No user ID found in the URL.");
+		}
+
+		link = "https://swapi.dev/api/people/"+userId
+		renderFilms(link)
+
+	</script>
+<div class="container"></div>
+
+</body>
+</html>
